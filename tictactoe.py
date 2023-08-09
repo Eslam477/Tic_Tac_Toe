@@ -1,17 +1,17 @@
 import os
-from helpers import check_turn, check_for_win, draw_board, boot_turn
+from helpers import check_turn, check_for_win, draw_board, bot_turn
 
 # Declare all the variables we're going to need
 devMode = False
 spots = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7',  8: '8', 9: '9'}
-playing, complete, play_with_boot = True, False, bool()
+playing, complete, play_with_bot = True, False, bool()
 turn = 0
 prev_turn = -1
 #Choose the type of match
 print("Choose the type of match you want.")
-print("1. Boot")
+print("1. Bot")
 print("2. PVP")
-play_with_boot = True if int(input()) == 1 else False
+play_with_bot = True if int(input()) == 1 else False
 
 # Game Loop
 while playing:
@@ -27,8 +27,8 @@ while playing:
     print("Player " + str((turn % 2) + 1) + "'s turn: Pick your spot or press q to quit")
 
 
-    if play_with_boot & turn % 2 != 0: 
-        boot_turn(spots, turn,devMode)
+    if play_with_bot & turn % 2 != 0: 
+        bot_turn(spots, turn,devMode)
         turn += 1
     else:
         choice = input()
@@ -54,7 +54,7 @@ if complete:
     if check_turn(turn) == 'O':
         print("Player 1 Wins!")
     else:
-        if play_with_boot :
+        if play_with_bot :
             print("The robot has won!")
         else:
             print("Player 2 Wins!")

@@ -7,12 +7,12 @@ def draw_board(spots):
     print(board)
 
 
-def boot_turn(spots ,turn,devMode):
+def bot_turn(spots ,turn,devMode):
     if devMode == False:
         os.system('cls' if os.name == 'nt' else 'clear')
 
     draw_board(spots)
-    print("It's the boot turn, he's thinking, wait a bit.")
+    print("It's the bot turn, he's thinking, wait a bit.")
 
     #Check for a threat
     winning_models = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
