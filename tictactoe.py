@@ -8,6 +8,8 @@ playing, complete, play_with_bot = True, False, bool()
 turn = 0
 prev_turn = -1
 #Choose the type of match
+if devMode == False:
+        os.system('cls' if os.name == 'nt' else 'clear')
 print("Choose the type of match you want.")
 print("1. Bot")
 print("2. PVP")

@@ -7,14 +7,7 @@ def draw_board(spots):
     print(board)
 
 
-def bot_turn(spots ,turn,devMode):
-    if devMode == False:
-        os.system('cls' if os.name == 'nt' else 'clear')
-
-    draw_board(spots)
-    print("It's the bot turn, he's thinking, wait a bit.")
-
-    #Check for a threat
+def expect_the_best_choice(spots,type_tag):
     winning_models = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
     looping = True
     loopIndex = 0
@@ -25,18 +18,31 @@ def bot_turn(spots ,turn,devMode):
         v3 = spots[winning_models[loopIndex][2]]
         loopIndex = loopIndex + 1
 
-        if v1 == v2 == 'X' and v3.isnumeric():
+        if v1 == v2 == type_tag and v3.isnumeric():
             cstp = v3
             looping = False
-        elif v1 == v3 == 'X' and v2.isnumeric():
+        elif v1 == v3 == type_tag and v2.isnumeric():
             cstp = v2
             looping = False
-        elif v2 == v3 == 'X' and v1.isnumeric():
+        elif v2 == v3 == type_tag and v1.isnumeric():
             cstp = v1
             looping = False
-
         if loopIndex + 1 == len(winning_models):
             looping = False
+    return cstp
+
+def bot_turn(spots ,turn,devMode):
+    if devMode == False:
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+    draw_board(spots)
+    print("It's the bot turn, he's thinking, wait a bit.")
+
+    #Check for a threat
+    cstp = expect_the_best_choice(spots,check_turn(turn))
+
+    if cstp == -1:
+        cstp = expect_the_best_choice(spots,check_turn(turn + 1))
 
     if cstp != -1 :
         spots[int(cstp)] = check_turn(turn)
