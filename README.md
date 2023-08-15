@@ -2,6 +2,9 @@
 
 This is a simple implementation of the Tic-Tac-Toe game using Python. The game allows two players to take turns marking spaces on a 3x3 grid. You can choose to play against a computer-controlled opponent (BOT) or against another player (PVP). The game is played in the console without any graphical interface.
 
+## Game experience
+If you are trying the game, you can download the exe file from [here](https://drive.google.com/file/d/1SfeY74SMBJS7HCd4K4X2Dd7ZEMwCGwGj/view?usp=sharing)
+Note: The file does not have any danger or any operations that operate in secret, and it is 100% safe on devices, operating systems, and data.
 ## How to Play
 
 1. Run the `tic_tac_toe.py` file using Python.
@@ -30,3 +33,4 @@ Make sure you have Python 3 installed on your system to run this game.
 5. Follow the on-screen instructions to play the game.
 
 Enjoy playing Tic-Tac-Toe! Feel free to contribute to the project by submitting pull requests or reporting issues.
+

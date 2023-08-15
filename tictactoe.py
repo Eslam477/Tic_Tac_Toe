@@ -1,5 +1,5 @@
 import os
-from helpers import check_turn, check_for_win, draw_board, bot_turn
+from helpers import check_turn, check_for_win, draw_board, bot_turn, editorial_p
 
 # Declare all the variables we're going to need
 devMode = False
@@ -7,13 +7,8 @@ spots = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7',  8: '8', 9: '9'
 playing, complete, play_with_bot = True, False, bool()
 turn = 0
 prev_turn = -1
-#Choose the type of match
-if devMode == False:
-        os.system('cls' if os.name == 'nt' else 'clear')
-print("Choose the type of match you want.")
-print("1. Bot")
-print("2. PVP")
-play_with_bot = True if int(input()) == 1 else False
+
+play_with_bot = editorial_p(devMode)
 
 # Game Loop
 while playing:
@@ -65,3 +60,17 @@ else:
     print("No Winner")
 
 print("Thanks for playing!")
+
+
+endProgram = False
+while not endProgram:
+    x = input('Type q to exit the game: ')
+    if x == 'Q' or x == 'q':
+        endProgram = True
+    else:
+        print('Unexpected')
+    
+
+
+
+

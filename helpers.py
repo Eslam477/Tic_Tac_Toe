@@ -6,6 +6,23 @@ def draw_board(spots):
              f"|{spots[7]}|{spots[8]}|{spots[9]}|")
     print(board)
 
+def editorial_p(devMode):
+    #Choose the type of match
+    if devMode == False:
+            os.system('cls' if os.name == 'nt' else 'clear')
+
+    print("Welcome to the Tic Tac Toe game!")
+    print("The game is built and developed by E477")
+    print("     X     |     O     |     X     ")
+    print("-----------+-----------+-----------")
+    print("     O     |     X     |     O     ")
+    print("-----------+-----------+-----------")
+    print("     X     |     O     |     X     ")
+    print("Choose the type of match you want.")
+    print("1. Bot")
+    print("2. PVP")
+    play_with_bot = True if int(input()) == 1 else False
+    return play_with_bot
 
 def expect_the_best_choice(spots,type_tag):
     winning_models = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
